@@ -1,0 +1,28 @@
+# dotfiles
+.idea
+.vscode
+.mypy_cache
+.pytest*
+
+# Python-generated files
+*.py[cod]
+
+#Database-like files
+*.sqlite
+*.sqlite3
+*.db
+# journal/lock-files for db-like
+*.sqlite3-journal
+*.db-journal
+
+# Folders
+temp/
+sources/
+env/
+venv/
+__pycache__/
+
+# Project specific / Unnecessary
+*.code-workspace
+notes.md
+*.log
