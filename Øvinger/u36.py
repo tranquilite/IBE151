@@ -11,7 +11,6 @@ def test_opg(crib: dict) -> None:
         print(oppgave+' ', end='')
         for problem in crib[oppgave][1]:
             try:
-                #print(problem[0:-1])
                 assert call(*problem[0:-1]) == problem[-1]
             except AssertionError as e:
                 if DEBUG is True:
