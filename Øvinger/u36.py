@@ -1,25 +1,42 @@
 ''' Jaok. I guess we're doing this?
 REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
+import time
 import hjelpere as u
 
 UKE = 36
 DEBUG = True
 
+
 def test_opg(crib: dict) -> None:
+    """Så dette er _litt_ mer komplisert enn det
+    øvingen legger tilrette for. ..eller hva som er hensiktsmessig."""
+    timing, errlog = {}, []
     for oppgave in crib:
-        call = crib[oppgave][0]
-        print(oppgave+' ', end='')
-        for problem in crib[oppgave][1]:
+        start = time.time()
+        call = oppgave[0]
+        print(call.__name__+' ', end='')
+        for problem in oppgave[1]:
             try:
                 assert call(*problem[0:-1]) == problem[-1]
-            except AssertionError as e:
+            except AssertionError:
                 if DEBUG is True:
-                    print(f'\nF {call(*problem[0:-1])} != {problem[-1]}')
+                    errlog.append(
+                        # as an aside - this unwrap is stupid
+                        f'F {call.__name__} {call(*problem[0:-1])} ' +
+                        f'!= {problem[-1]}')
+                    print('F', end='')
                 else:
                     print('F', end='')
             else:
                 print('.', end='')
-        print()
+            finally:
+                timing[call.__name__] = (time.time()-start)
+        print()  # Force newline.
+    if errlog != []:
+        for log in errlog:
+            print(log)
+    if DEBUG is True:
+        print(timing)
 
 
 def o1(num1: int, num2: int) -> int:
@@ -76,17 +93,18 @@ def o10(time: int) -> int:
 
 
 if __name__ == '__main__':
-    oppgaver = {
-        'o1': [o1, [(30, 10, 40), (-30, 10, -20), (0, 0, 0)]],
-        'o2': [o2, [(3, 9, 27), (-30, 10, -300), (0, 9, 0)]],
-        'o3': [o3, [(3, 9, 10, 120), (-30, 10, 4, -80), (2, 9, 3, 33)]],
-        'o4': [o4, [(5, 6, 7, 8, -26), (0, 0, 7, 8, -56), (5, 6, -7, 8, 86)]],
-        'o5': [o5, [(2.00, 12.5664), (100.64, 31819.3103), (150.00, 70685.7750)]],
-        'o6': [o6, [(5, 6, 7, 8, (5, 8)), (3, 0, 7, 8, (0, 8)), (5, 6, -7, 8, (-7, 8))]],
-        'o7': [o7, [(10, 85, 70.833), (2, 92, 15.333), (22, 67, 122.833)]],
-        'o8': [o8, [(556, (0, 9, 16)), (1, (0, 0, 1)), (140153, (38, 55, 53))] ],
-        'o9': [o9, [(500, 35.0, 12.286), (2254, 124.4, 18.119), (4554, 464.6, 9.802)]],
-        'o10': [o10, [(30, 60), (110, 220), (7, 14)]]
-    }
+    ovinger = [o1, o2, o3, o4, o5, o6, o7, o8, o9, o10]
+    oppgaver = [
+        [(30, 10, 40), (-30, 10, -20), (0, 0, 0)],
+        [(3, 9, 27), (-30, 10, -300), (0, 9, 0)],
+        [(3, 9, 10, 120), (-30, 10, 4, -80), (2, 9, 3, 33)],
+        [(5, 6, 7, 8, -26), (0, 0, 7, 8, -56), (5, 6, -7, 8, 86)],
+        [(2.00, 12.5664), (100.64, 31819.3103), (150.00, 70685.7750)],
+        [(5, 6, 7, 8, (5, 8)), (3, 0, 7, 8, (0, 8)), (5, 6, -7, 8, (-7, 8))],
+        [(10, 85, 70.833), (2, 92, 15.333), (22, 67, 122.833)],
+        [(556, (0, 9, 16)), (1, (0, 0, 1)), (140153, (38, 55, 53))],
+        [(500, 35.0, 12.286), (2254, 124.4, 18.119), (4554, 464.6, 9.802)],
+        [(30, 60), (110, 220), (7, 14)]
+    ]
 
-    test_opg(oppgaver)
+    test_opg(zip(ovinger, oppgaver))
