@@ -3,7 +3,7 @@ REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
 import hjelpere as u
 
 
-UKE = 35
+__UKE__ = 35
 
 
 @u.fprint

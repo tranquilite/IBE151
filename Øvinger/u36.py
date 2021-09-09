@@ -3,7 +3,7 @@ REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
 import time
 import hjelpere as u
 
-UKE = 36
+__UKE__ = 36
 DEBUG = True
 
 
