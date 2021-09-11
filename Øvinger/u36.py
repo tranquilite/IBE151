@@ -9,7 +9,8 @@ DEBUG = True
 
 def test_opg(crib: dict) -> None:
     """Så dette er _litt_ mer komplisert enn det
-    øvingen legger tilrette for. ..eller hva som er hensiktsmessig."""
+    øvingen legger tilrette for. ..eller hva som er hensiktsmessig.
+    .. eller hva et normalt menneske ville tenkt var en saklig bruk av tid."""
     timing, errlog = {}, []
     for oppgave in crib:
         start = time.time()
