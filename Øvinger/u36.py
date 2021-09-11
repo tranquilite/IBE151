@@ -97,9 +97,13 @@ def o9(dis: int, used: float) -> float:
     return round(dis/used, 3)
 
 
-def o10(time: int) -> int:
-    """takes time in min"""
-    speed_ratio = 2
+def o10(time: int, car_x: int=60, car_y: int=90) -> int:
+    """takes time in min.
+    The basic form is; Car Y travels at 90km/h, car X at 60km/h in the same
+    direction. Relative velocity is (90 - 60) = 30 km/h, and the target
+    value is in minutes, s.t. for one hour (30 km), we have a ratio
+    (60 min) / (30 km) = 2, so time traveled is  2 * time """
+    speed_ratio = 60 / abs(car_x - car_y)
     return time * speed_ratio
 
 
