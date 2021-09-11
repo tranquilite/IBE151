@@ -1,5 +1,6 @@
-''' Jaok. I guess we're doing this?
-REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
+"""Jaok. I guess we're doing this?
+REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"""
+
 import hjelpere as u
 
 
@@ -20,12 +21,12 @@ def o1() -> float:
 
 @u.fprint
 def o2() -> str:
-    '''For each of the following expressions, in which order are the subexpressions evaluated?
+    """For each of the following expressions, in which order are the subexpressions evaluated?
     Check yourself using Python.
     6 * 3 + 7 * 4
     5 + 3 / 4
     5 -2 * 3 ** 4
-    ... PEMDAS left to right...'''
+    ... PEMDAS left to right..."""
     try:
         assert (6 * 3 + 7 * 4) == 46
         assert (5 + 3 / 4) == 5.75
@@ -38,11 +39,11 @@ def o2() -> str:
 
 @u.fprint
 def o3() -> str:
-    '''Calculations:
+    """Calculations:
     Create a new variable x, and assign it the value 10.5.
     Create a new variable y, and assign it the value 4.
     Sum x and y, and make x refer to the resulting value.
-    After this statement has been executed, what are the values of x and y?'''
+    After this statement has been executed, what are the values of x and y?"""
     try:
         x = 10.5
         y = 4
@@ -56,8 +57,8 @@ def o3() -> str:
 
 
 def o4() -> list:
-    '''fuck it. Jeg er allerede investert.
-    Which of the following expressions results in SyntaxErrors?'''
+    """fuck it. Jeg er allerede investert.
+    Which of the following expressions results in SyntaxErrors?"""
     expr = ['6 * -----8'
             '8 = people'  # ..denne.. DENNEEEEEE
             '((((4 ** 3))))'
@@ -69,7 +70,7 @@ def o4() -> list:
 
 @u.fprint
 def o5() -> str:
-    '''What is the result of following calculations?'''
+    """What is the result of following calculations?"""
     calc = ['((((6+4)*2)-10)//2)-4*2',
             '2 + 17 / 2 * 3',
             '5*2//3',

@@ -1,5 +1,5 @@
-''' Jaok. I guess we're doing this?
-REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
+"""Jaok. I guess we're doing this?
+REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"""
 import time
 import hjelpere as u
 
@@ -98,7 +98,7 @@ def o9(dis: int, used: float) -> float:
     return round(dis/used, 3)
 
 
-def o10(time: int, car_x: int=60, car_y: int=90) -> int:
+def o10(time: int, car_x: int = 60, car_y: int = 90) -> int:
     """takes time in min.
     The basic form is; Car Y travels at 90km/h, car X at 60km/h in the same
     direction. Relative velocity is (90 - 60) = 30 km/h, and the target
