@@ -63,7 +63,8 @@ def o4() -> list:
             '8 = people'  # ..denne.. DENNEEEEEE
             '((((4 ** 3))))'
             '(-(-(-(-5))))'
-            '4 += 7 / 2']
+            '4 += 7 / 2'  # .. *kremt* .. og denne
+            ]
 
     return expr
 
