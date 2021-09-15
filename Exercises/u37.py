@@ -121,19 +121,19 @@ def slicer_slices_1(streng: str) -> str:
     """Venter på avklaring fra studass
     Avklaring på siste sats uteblir. Fra hvilken streng skal lengden vurderes?
     Alt 1 - Strengoperasjon. Slicer ut *mellom* og fjerner.
-    10 bytecodes, men ene er CALL_METHOD"""
-    if len(streng) > 2:
-        return streng.replace(streng[2:-2], '')
-    return ''
+    16 bytecodes, men ene er LOAD_METHOD"""
+    #if len(streng) > 2:
+    #    return streng.replace(streng[2:-2], '')
+    #return ''
+
+    return (streng.replace(streng[2:-2], '') if len(streng) > 2 else '')
 
 
 def slicer_slices_2(streng: str) -> str:
     """Alt 2" - More schneidmaschine. 
     Slicer to første, to siste og komponerer
-    12 bytecodes"""
-    if len(streng) > 2:
-        return streng[:2] + streng[-2:]
-    return ''
+    18 bytecodes"""
+    return (streng[:2] + streng[-2:] if len(streng) > 2 else '')
 
 
 if __name__ == '__main__':
