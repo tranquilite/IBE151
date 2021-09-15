@@ -106,7 +106,8 @@ def antatt_forutsigbarhet() -> None:
 
 # Oppgave 8
 def o8(full: bool, empty: bool) -> bool:
-    return full ^ empty
+    #return full ^ empty  # Medium sized Oof-menu, hold the garlic
+    return not ( full and empty )
 
 
 # Oppgave 9
