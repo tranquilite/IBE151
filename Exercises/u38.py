@@ -102,7 +102,21 @@ def grade_calculator():
     print(f'Point average {grade_avg}, graded {buckets[grade_idx]}')
 
 
+def rock_paper_scissors():
+    play, weak = ('R', 'P', 'S'), ('P', 'S', 'R')
+    hand1 = input('Player 1: ')[0].upper()
+    hand2 = input('Player 2: ')[0].upper()
+    if hand1 == hand2:
+        print('Tie')
+        return
+    if hand2 == weak[play.index(hand1)]:
+        print('Player 2 wins')
+    else:
+        print('Player 1 wins')
+
+    return
+
 
 if __name__ == '__main__':
-    grade_calculator()
+    rock_paper_scissors()
     pass
