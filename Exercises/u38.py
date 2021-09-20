@@ -74,8 +74,8 @@ def weekdays():
 def passord():
     passord = 'abcdefgh'
     word = input('Enter word: ')
-    print('Yay' if  word == passord else 
-          'Too short' if len(word) != len(passord) else 'Nah')
+    print('Yay' if word == passord else
+          'Wrong length' if len(word) != len(passord) else 'Nah')
 
 
 def net_salary():
