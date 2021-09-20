@@ -21,8 +21,8 @@ def o1() -> float:
 
 @u.fprint
 def o2() -> str:
-    """For each of the following expressions, in which order are the subexpressions evaluated?
-    Check yourself using Python.
+    """For each of the following expressions, in which order
+    are the subexpressions evaluated? Check yourself using Python.
     6 * 3 + 7 * 4
     5 + 3 / 4
     5 -2 * 3 ** 4

@@ -106,8 +106,8 @@ def antatt_forutsigbarhet() -> None:
 
 # Oppgave 8
 def o8(full: bool, empty: bool) -> bool:
-    #return full ^ empty  # Medium sized Oof-menu, hold the garlic
-    return not ( full and empty )
+    # return full ^ empty  # Medium sized Oof-menu, hold the garlic
+    return not (full and empty)
 
 
 # Oppgave 9
@@ -122,15 +122,12 @@ def slicer_slices_1(streng: str) -> str:
     Avklaring på siste sats uteblir. Fra hvilken streng skal lengden vurderes?
     Alt 1 - Strengoperasjon. Slicer ut *mellom* og fjerner.
     16 bytecodes, men ene er LOAD_METHOD"""
-    #if len(streng) > 2:
-    #    return streng.replace(streng[2:-2], '')
-    #return ''
 
     return (streng.replace(streng[2:-2], '') if len(streng) > 2 else '')
 
 
 def slicer_slices_2(streng: str) -> str:
-    """Alt 2" - More schneidmaschine. 
+    """Alt 2" - More schneidmaschine.
     Slicer to første, to siste og komponerer
     18 bytecodes"""
     return (streng[:2] + streng[-2:] if len(streng) > 2 else '')

@@ -2,7 +2,7 @@
 REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"""
 
 import time
-import hjelpere as u
+# import hjelpere as u
 
 __UKE__ = 36
 DEBUG = True
