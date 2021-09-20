@@ -93,13 +93,14 @@ def valid_triangle():
 
 
 def grade_calculator():
-        grades = [0, 0, 0]
-        buckets = [*'ABCDF'][::-1]
-        for _ in range(0, 3):
-            grades[_] = int(input(f'Enter {_}. course: '))
-        grade_avg = sum(grades)//3
-        grade_idx = int(1 + (grade_avg-60) * 4/40) if grade_avg in range(60, 101) else 0
-        print(buckets[grade_idx])
+    """Om en halvtime har jeg glemt _alt_ jeg gjorde her"""
+    grades, buckets = [0, 0, 0], [*'AABCDF'][::-1]  # Double A - The cheesy fix
+    for _ in range(0, 3):
+        grades[_] = int(input(f'Enter {_+1}. course: '))
+    grade_avg = sum(grades)//3
+    grade_idx = int(1 + (grade_avg-60) * 0.1) if grade_avg in range(60, 101) else 0
+    print(f'Point average {grade_avg}, graded {buckets[grade_idx]}')
+
 
 
 if __name__ == '__main__':
