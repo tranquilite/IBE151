@@ -27,7 +27,7 @@ def ask_input(*, query, types):
                     try:
                         sends = types[_](input(query[_] + ': '))
                     except ValueError:
-                        print(f'Input is not valid for ',
+                        print('Input is not valid for ',
                               f'type {types[_].__name__}')
                     else:
                         if len(query) == 1:
@@ -35,7 +35,6 @@ def ask_input(*, query, types):
                         else:
                             inputs.append(sends)
                         break
-
             return func(*args, **{'inputs': inputs, **kwargs})
         return wrapper
     return decorator
