@@ -1,5 +1,7 @@
-def fprint(silent=False):
-    """fprint - Nå med muligheten til å holde mer kjeft"""
+def fprint(silent=True):
+    """fprint - Nå med muligheten til å holde mer kjeft
+    :param silent - bool for å droppe unødvendige tilleggsmeldinger.
+    :Funfact - Det er en feil her et sted. Se om du kan finne den ;)"""
     def decorator(func):
         def wrapper(*args, **kwargs):
             ret = func(*args, **kwargs)
@@ -18,7 +20,11 @@ def fprint(silent=False):
 
 def ask_input(*, query, types):
     """Er du lei av alle oppgavene som vil at du skal bruke evig mange input()?
-    Look no further! Her er satan sjæl."""
+    Look no further! Her er satan sjæl.
+    :*query og types er påkrevd*
+    :param query - tuple med setninger for input(<prompt>)
+    :param types - tuple med ønsket type fra hver spørring.
+        Må være like lang som query"""
     def decorator(func):
         def wrapper(*args, **kwargs):
             inputs = []

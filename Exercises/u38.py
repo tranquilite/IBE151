@@ -23,13 +23,14 @@ def warm_up():
                       f'and you\'ll reach 100 years in {(year-age)+100}')
 
 
-@u.fprint
-def even_or_odd(x):
-    return 'Even' if x % 2 == 0 else 'Odd'
+@u.ask_input(query=('Enter a number',), types=(int,))
+@u.fprint()
+def even_or_odd(inputs):
+    return 'Even' if inputs % 2 == 0 else 'Odd'
 
 
 @u.ask_input(query=('Please enter a number',), types=(int,))
-@u.fprint(silent=True)
+@u.fprint()
 def positive_negative_or_zero(inputs):
     return 'Negative' if inputs < 0 else 'Positive' if inputs > 0 else 'Zero'
 
@@ -106,5 +107,5 @@ def rock_paper_scissors(inputs):
 
 
 if __name__ == '__main__':
-    rock_paper_scissors()
+    even_or_odd()
     pass
