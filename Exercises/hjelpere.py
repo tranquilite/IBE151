@@ -1,13 +1,19 @@
-def fprint(func):
-    def wrapper(*args, **kwargs):
-        ret = func(*args, **kwargs)
-        if isinstance(ret, list):
-            for _ in ret:
-                print(_)
-        else:
-            print(f'>{func.__name__} {ret}')
-        return ret
-    return wrapper
+def fprint(silent=False):
+    """fprint - Nå med muligheten til å holde mer kjeft"""
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            ret = func(*args, **kwargs)
+            if isinstance(ret, list):
+                for _ in ret:
+                    print(_)
+            else:
+                if silent is False:
+                    print(f'>{func.__name__} {ret}')
+                else:
+                    print(ret)
+            return ret
+        return wrapper
+    return decorator
 
 
 def ask_input(*, query, types):
