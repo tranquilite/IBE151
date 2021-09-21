@@ -64,16 +64,16 @@ def display_number_02():
     print(*nums, *nums[::-1])
 
 
-def weekdays():
+@u.ask_input(query=('Enter a number', ), types=(int, ))
+def weekdays(inputs):
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
             'Saturday', 'Sunday', 'Not a weekday']
-    num = int(input('Enter a number: '))
-    print(days[num-1 if num in range(0, 7) else 7])
+    print(days[inputs-1 if inputs in range(0, 8) else 7])
 
 
-def passord():
-    passord = 'abcdefgh'
-    word = input('Enter word: ')
+@u.ask_input(query=('Enter a word',), types=(str,))
+def passord(inputs):
+    word, passord = inputs, 'abcdefgh'
     print('Yay' if word == passord else
           'Wrong length' if len(word) != len(passord) else 'Nah')
 
@@ -118,5 +118,6 @@ def rock_paper_scissors():
 
 
 if __name__ == '__main__':
-    rock_paper_scissors()
+    passord()
+    #rock_paper_scissors()
     pass
