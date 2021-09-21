@@ -28,15 +28,10 @@ def even_or_odd(x):
     return 'Even' if x % 2 == 0 else 'Odd'
 
 
-@u.fprint
-def positive_negative_or_zero():
-    while True:
-        try:
-            num = int(input('Please enter a number: '))
-        except ValueError:
-            print('Nuh-Uh')
-        else:
-            return 'Negative' if num < 0 else 'Positive' if num > 0 else 'Zero'
+@u.ask_input(query=('Please enter a number',), types=(int,))
+@u.fprint(silent=True)
+def positive_negative_or_zero(inputs):
+    return 'Negative' if inputs < 0 else 'Positive' if inputs > 0 else 'Zero'
 
 
 def display_number_01():
@@ -85,29 +80,27 @@ def net_salary():
     print(net_salary)
 
 
-def valid_triangle():
-    angles = [0, 0, 0]
-    for _ in range(0, 3):
-        angles[_] = int(input(f'Enter {_}. angle: '))
-    print('Valid' if sum(angles) == 180 else 'Invalid')
+@u.ask_input(query=('Enter angle',)*3, types=(int,)*3)
+def valid_triangle(inputs):
+    angles = inputs
+    print('Triangle' if sum(angles) == 180 else 'Not a real triangle')
 
 
-def grade_calculator():
+@u.ask_input(query=('Enter course points', )*3, types=(int, )*3)
+def grade_calculator(inputs):
     """Om en halvtime har jeg glemt _alt_ jeg gjorde her"""
-    grades, buckets = [0, 0, 0], [*'AABCDF'][::-1]  # Double A - The cheesy fix
-    for _ in range(0, 3):
-        grades[_] = int(input(f'Enter {_+1}. course: '))
+    grades, buckets = inputs, [*'AABCDF'][::-1]  # Double A - The cheesy fix
     grade_avg = sum(grades)//3
     grade_idx = int(1 + (grade_avg-60) * 0.1) if grade_avg in range(60, 101) else 0
     print(f'Point average {grade_avg}, graded {buckets[grade_idx]}')
 
 
-@u.ask_input(('Player 1', 'Player 2'), (str, str))
+@u.ask_input(query=('Player 1', 'Player 2'), types=(str, str))
 def rock_paper_scissors(inputs):
     play, weak = ('R', 'P', 'S'), ('P', 'S', 'R')
     hand1, hand2 = inputs[0][0].upper(), inputs[1][0].upper()
-    result = 'Tie' if hand1 == hand2 else \
-    'Player 2 wins' if hand2 == weak[play.index(hand1)] else 'Player 1 wins'
+    result = 'Tie' if hand1 == hand2 else 'Player ' + \
+        ('2' if hand2 == weak[play.index(hand1)] else '1') + ' wins'
     print(result)
     return
 
