@@ -10,7 +10,7 @@ def fprint(func):
     return wrapper
 
 
-def ask_input(query, types):
+def ask_input(*, query, types):
     """Er du lei av alle oppgavene som vil at du skal bruke evig mange input()?
     Look no further! Her er satan sjæl."""
     def decorator(func):
