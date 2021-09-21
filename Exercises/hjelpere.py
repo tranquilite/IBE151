@@ -33,8 +33,8 @@ def ask_input(*, query, types):
                     try:
                         sends = types[_](input(query[_] + ': '))
                     except ValueError:
-                        print('Input is not valid for ',
-                              f'type {types[_].__name__}')
+                        print('Input is not valid. ',
+                              f'Expected {types[_].__name__}')
                     else:
                         if len(query) == 1:
                             inputs = sends
