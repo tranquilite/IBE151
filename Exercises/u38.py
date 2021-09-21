@@ -13,7 +13,7 @@ def warm_up(inputs):
         print(f'Hi, {name}. {year} I guess?')
     else:
         print(f'Hi, {name}! You\'re born in {year-age}, ' +
-                f'and you\'ll reach 100 years in {(year-age)+100}')
+              f'and you\'ll reach 100 years in {(year-age)+100}')
 
 
 @u.ask_input(query=('Enter a number',), types=(int,))
