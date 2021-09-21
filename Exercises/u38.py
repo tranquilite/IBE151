@@ -4,23 +4,16 @@ import datetime
 __UKE__ = 38
 
 
-def warm_up():
-    name, age = '', 0
+@u.ask_input(query=('You name', 'Your age'), types=(str, int))
+def warm_up(inputs):
+    name, age = inputs[0], inputs[1]
     year = datetime.date.today().year
-    while True:
-        try:
-            name = input('Please enter your name: ')
-            age = int(input('Please enter your age'))
-            if age == 0:
-                raise ValueError  # Super lazy. *Super*
-        except ValueError:
-            print('Nuh-Uh. Age\'s a number')
-        else:
-            if age >= 100:
-                print(f'Hi, {name}. {year} I guess?')
-            else:
-                print(f'Hi, {name}! You\'re born in {year-age}, ' +
-                      f'and you\'ll reach 100 years in {(year-age)+100}')
+
+    if age >= 100:
+        print(f'Hi, {name}. {year} I guess?')
+    else:
+        print(f'Hi, {name}! You\'re born in {year-age}, ' +
+                f'and you\'ll reach 100 years in {(year-age)+100}')
 
 
 @u.ask_input(query=('Enter a number',), types=(int,))
@@ -35,29 +28,13 @@ def positive_negative_or_zero(inputs):
     return 'Negative' if inputs < 0 else 'Positive' if inputs > 0 else 'Zero'
 
 
-def display_number_01():
+@u.ask_input(query=('Enter a number',)*3, types=(int,)*3)
+def display_number_01(inputs):
     """Oh fug. The number of lines is too damn high"""
-    numbers = [0, 0, 0]
-    for _ in range(0, 3):
-        while True:
-            try:
-                numbers[_] = int(input(f'Enter the {_+1}. number: '))
-            except ValueError:
-                print('Nuh-Uh')
-            else:
-                break
-    numbers = sorted(numbers)+sorted(numbers)[::-1]
+    numbers = sorted(inputs)+sorted(inputs)[::-1]
+    print(max(inputs), min(inputs))
     for num in numbers:
         print(num, end=' ')
-
-
-def display_number_02():
-    """Oja. Oppgaven bryr seg ikke om midterste tallet..."""
-    numbers = [0, 0, 0]
-    for _ in range(0, 3):
-        numbers[_] = int(input(f'Enter the {_+1}. number: '))
-    nums = (max(numbers), min(numbers))
-    print(*nums, *nums[::-1])
 
 
 @u.ask_input(query=('Enter a number', ), types=(int, ))
@@ -107,5 +84,5 @@ def rock_paper_scissors(inputs):
 
 
 if __name__ == '__main__':
-    even_or_odd()
+    warm_up()
     pass
