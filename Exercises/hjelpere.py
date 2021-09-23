@@ -13,7 +13,7 @@ def fprint(silent=True):
                     print(f'>{func.__name__} {ret}')
                 else:
                     print(ret)
-            return ret
+            return func(*args, **kwargs)
         return wrapper
     return decorator
 
