@@ -6,7 +6,7 @@ __UKE__ = 38
 
 @u.ask_input(query=('You name', 'Your age'), types=(str, int))
 def warm_up(inputs):
-    name, age = inputs[0], inputs[1]
+    name, age = inputs
     year = datetime.date.today().year
 
     if age >= 100:
